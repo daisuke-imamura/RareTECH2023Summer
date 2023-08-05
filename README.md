@@ -1,4 +1,4 @@
-# estate
+
 
 1. docker-compose.yml と同じ階層と、django ディレクトリの中に２つ開発環境「.env」ファイルを作成し記述する。
 

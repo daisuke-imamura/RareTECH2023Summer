@@ -1,15 +1,26 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
+from django.contrib.auth.models import BaseUserManager
 
 
+
+# class CustomUserManager(BaseUserManager):
+#     def create_user(self, username, password=None, **extra_fields):
+#         if not username:
+#             raise ValueError('The Username field must be set')
+
+#         user = self.model(username=username, **extra_fields)
+#         user.set_password(password)
+#         user.save(using=self._db)
+#         return user
 
 
 class User(AbstractUser):
-    # username = models.CharField(max_length=255, unique=True)
-    # password = models.CharField(max_length=255)
     stocks = models.TextField(verbose_name="食材メモ",unique=False, null=True)
     
+    # objects = CustomUserManager()
+
     def __str__(self):
         return self.username
     
@@ -54,3 +65,15 @@ class Step(models.Model):
     class Meta:
         db_table = 'steps'
 
+
+# class UserActivateTokens(models.Model):
+    
+#     token = models.UUIDField(db_index=True)
+#     expired_at = models.DateTimeField()
+#     user = models.ForeignKey(
+#         'User', on_delete=models.CASCADE
+#     )
+    
+#     class Meta:
+#         db_table = 'user_activate_tokens'
+        

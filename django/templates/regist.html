@@ -2,18 +2,15 @@
 
 {% block content %}
 <form method='post'>
-    
-{% csrf_token %} 
 
-{% comment %} {{ regist_form.as_p}}    {% endcomment %}
+{% csrf_token %} 
+{% comment %} 
+{{ regist_form.as_p}}    {% endcomment %}
 {{ regist_form.username.label_tag }} {{ regist_form.username }}
 {{ regist_form.username.errors }}
 
 {{ regist_form.password.label_tag }} {{ regist_form.password }}
 {{ regist_form.password.errors }}
-
-{{ regist_form.confirm_password.label_tag }} {{ regist_form.confirm_password }}
-{{ regist_form.confirm_password.errors }}
 
 <input type="submit" value="ユーザー登録">
 

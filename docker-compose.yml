@@ -28,8 +28,10 @@ services:
       context: ./django/
     volumes:
       - tmp-data:/app/tmp
+
       - ./nginx/static:/app/static
     #テンプレーツをマウントする
+
       - ./django:/app
     env_file:
       - .env
@@ -49,7 +51,7 @@ services:
       - "80:80"
     depends_on:
       - app
-  
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     # コンテナ内の環境変数を.envを使って設定

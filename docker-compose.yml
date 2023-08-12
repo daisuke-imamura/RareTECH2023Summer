@@ -28,7 +28,10 @@ services:
       context: ./django/
     volumes:
       - tmp-data:/app/tmp
-      - ./nginx/static:/app/static #テンプレーツをマウントする
+
+      - ./nginx/static:/app/static
+    #テンプレーツをマウントする
+
       - ./django:/app
     env_file:
       - .env

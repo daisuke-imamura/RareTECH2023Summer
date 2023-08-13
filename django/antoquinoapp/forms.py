@@ -3,6 +3,9 @@ from .models import User
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import AuthenticationForm
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .models import Recipe
+
 
 
 
@@ -52,3 +55,16 @@ class Loginform(AuthenticationForm):
                 raise forms.ValidationError("ユーザー名とパスワードが一致しません。")
         
         return cleaned_data
+    
+    
+
+class RecipeCreateForm(forms.ModelForm):
+    class Meta:
+        model = Recipe
+        fields = ['recipe_name', 'category', 'ingredients']  # 作成したいフィールドを指定
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['category'].widget.attrs['class'] = 'form-select'  # カテゴリーフィールドにCSSクラスを追加
+
+        

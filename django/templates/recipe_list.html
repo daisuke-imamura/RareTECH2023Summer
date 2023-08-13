@@ -2,7 +2,19 @@
 
 {% block content %}
 
-リスト画面
+<h1>リスト画面</h1>
+
+<ul>
+    {% for oj in object_list %}
+    <li>
+        {{ oj.recipe_name}} 
+        <a href="{% url 'antoquinoapp:recipe_detail' pk=oj.pk %}">詳細へ</a>
+    </li>
+    {% endfor %}
+
+    
+</ul>
+    </form>
 
 
 {% endblock content %}

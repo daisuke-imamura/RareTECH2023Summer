@@ -7,6 +7,10 @@
 </head>
 <body>
     {% comment %} <a href="{% url "antoquinoapp:recipe_list" %}">レシピ一覧</a> {% endcomment %}
+    {% comment %} {% if user.is_authenticated %}
+    {% else %}
+        <a href="{% url 'antoquinoapp:regist' %}">ユーザー登録</a>
+    {% endif %} {% endcomment %}
 
     {% block content %}{% endblock content %}
 </body>

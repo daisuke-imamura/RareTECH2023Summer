@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Recipedetail画面</h1>
+<li>{{ object.recipe_name }}</li>
+<li>{{ object.category }}</li>
+<li>{{ object.ingredients }}</li>
+<li>{{ object.created_at }}</li>
+<li>{{ object.favorire }}</li>
+
+<a href="{% url 'antoquinoapp:recipe_delete' pk=object.pk %}">削除する</a>
+
+<a href="{% url 'antoquinoapp:recipe_update' pk=object.pk %}" >編集ページへ</a>
+<a href="{% url 'antoquinoapp:recipe_list'%}" >レシピ一覧へ</a> 
+
+{% endblock content %}

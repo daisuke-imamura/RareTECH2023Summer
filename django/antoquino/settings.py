@@ -113,11 +113,14 @@ USE_L10N = True
 USE_TZ = True
 
 #ログインが必要なページにアクセスがあった場合に、ログインしていないユーザーは飛ばされる
-# LOGIN_URL = "antoquinoapp:login"
+LOGIN_URL = "antoquinoapp:login"
 #ログイン後に行くページ
-# LOGIN_REDIRECT_URL = "antoquinoapp:recipes_list"
+# LOGIN_REDIRECT_URL = "recipe_list"
+# LOGIN_REDIRECT_URL = "recipe_create"
+LOGIN_REDIRECT_URL = 'antoquinoapp:recipe_create'
+
 #ログアウト後に行くページ
-# LOGOUT_REDIRECT_URL = "login"
+LOGOUT_REDIRECT_URL = "antoquinoapp:login"
 
 
 

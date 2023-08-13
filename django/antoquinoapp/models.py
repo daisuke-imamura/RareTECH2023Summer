@@ -5,21 +5,9 @@ from django.contrib.auth.models import BaseUserManager
 
 
 
-# class CustomUserManager(BaseUserManager):
-#     def create_user(self, username, password=None, **extra_fields):
-#         if not username:
-#             raise ValueError('The Username field must be set')
-
-#         user = self.model(username=username, **extra_fields)
-#         user.set_password(password)
-#         user.save(using=self._db)
-#         return user
-
 
 class User(AbstractUser):
     stocks = models.TextField(verbose_name="食材メモ",unique=False, null=True)
-    
-    # objects = CustomUserManager()
 
     def __str__(self):
         return self.username
@@ -44,7 +32,7 @@ class Recipe(models.Model):
     category = models.CharField(max_length=10, choices=CATEGORY_CHOICES,unique=False, null=True)
     ingredients = models.TextField(verbose_name="材料",unique=False, null=True)
     created_at= models.DateField(verbose_name="作成日",auto_now_add=True)
-    favorire = models.BooleanField(default=False)
+    favorite = models.BooleanField(default=False)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     
     def __str__(self):

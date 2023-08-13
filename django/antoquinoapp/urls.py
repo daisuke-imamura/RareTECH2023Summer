@@ -12,7 +12,7 @@ urlpatterns = [
     path("", views.hello, name="hello"),
     path("regist/", views.regist, name="regist"),
     path('login/', views.LoginView.as_view(form_class=Loginform), name='login'),
-    path('logout/', views.LogoutView.as_view(), name='logout'),
+    path('logout/', LogoutView.as_view(), name='logout'),
     path('recipe_create/', views.RecipeCreateView.as_view(), name='recipe_create'),
     path('recipe_list/', views.RecipeListView.as_view(), name='recipe_list'),
     path('recipe_detail/<int:pk>', views.RecipeDetailView.as_view(), name='recipe_detail'),

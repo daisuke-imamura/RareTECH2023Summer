@@ -2,6 +2,9 @@
 
 {% block content %}
 <h1>Create Recipe</h1>
+
+<a href="{% url 'antoquinoapp:recipe_list'%}" >レシピ一覧へ</a> 
+
     
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}

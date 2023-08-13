@@ -3,6 +3,15 @@
 {% block content %}
 
 <h1>リスト画面</h1>
+{% if user.is_authenticated %}
+    <form method="post" action="{% url 'antoquinoapp:logout' %}">
+        {% csrf_token %}
+        <button type="submit">ログアウト</button>
+
+        <a href="{% url 'antoquinoapp:recipe_create' %}">レシピ登録</a>
+
+    </form>
+{% endif %}
 
 <ul>
     {% for oj in object_list %}

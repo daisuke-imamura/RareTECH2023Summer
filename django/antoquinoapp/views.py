@@ -12,12 +12,6 @@ from django.views.generic.detail import DetailView
 
 
 
-
-
-
-
-
-
 def hello(request):
     return render(
         request, "hello.html"
@@ -44,8 +38,8 @@ class LoginView(LoginView):
     form_class = forms.Loginform
     
 
-class CustomLogoutView(LogoutView):
-    template_name = 'login.html'
+# class LogoutView(LogoutView):
+#     template_name = 'login.html'
 
 
 class RecipeCreateView(LoginRequiredMixin, CreateView):

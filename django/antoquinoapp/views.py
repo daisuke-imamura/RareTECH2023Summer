@@ -33,13 +33,9 @@ def regist(request):
         }
     )
     
-class LoginView(LoginView):
-    template_name = "login.html"
-    form_class = forms.Loginform
-    
-
-# class LogoutView(LogoutView):
-#     template_name = 'login.html'
+# class LoginView(LoginView):
+#     template_name = "login.html"
+#     form_class = forms.Loginform
 
 
 class RecipeCreateView(LoginRequiredMixin, CreateView):

@@ -8,15 +8,36 @@
     
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
+        {% comment %} {{ form.as_p }} {% endcomment %}
 
-        {% comment %} <div class="form-group">
-            <label for="{{ form.photo.id_for_label }}">Upload Photo:</label>
+        <div class="form-group">
+            <label for="{{ form.recipe_name.id_for_label }}">料理名:</label>
+            {{ form.recipe_name }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.category.id_for_label }}">カテゴリーを選択してください:</label>
+            {{ form.category }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.ingredients.id_for_label }}">使用食材:</label>
+            {{ form.ingredients }}
+        </div>
+
+        
+        <div class="form-group">
+            <label for="{{ form.photo.id_for_label }}">画像を選択:</label>
             {{ form.photo }}
+        </div>
+        {% comment %} <div class="form-group">
+            {% if form.photo %}
+                 <img src="{{ form.photo.url }}" alt="Uploaded Photo" style="max-width: 300px; max-height: 200px;">
+            {% endif %}
+            {% comment %} {% if form.photo.value %}
+                <img src="{{ form.photo.value.url }}" alt="Uploaded Photo" style="max-width: 300px; max-height: 200px;">
+            {% endif %} 
         </div> {% endcomment %}
-
-        <button type="submit">Create</button>
+    
+        <button type="submit">登録する</button>
     </form>
-
 
 {% endblock content %}

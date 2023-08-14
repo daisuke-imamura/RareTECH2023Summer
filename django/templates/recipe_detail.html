@@ -2,6 +2,9 @@
 
 {% block content %}
 <h1>Recipedetail画面</h1>
+<a href="{% url 'antoquinoapp:recipe_create' %}">レシピ登録</a>
+
+
 <li>{{ object.recipe_name }}</li>
 <li>{{ object.category }}</li>
 <li>{{ object.ingredients }}</li>

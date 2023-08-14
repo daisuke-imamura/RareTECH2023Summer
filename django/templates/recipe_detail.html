@@ -8,6 +8,13 @@
 <li>{{ object.created_at }}</li>
 <li>{{ object.favorite }}</li>
 
+
+{% if object.photo %}
+    <img src="{{ object.photo.url }}" alt="{{ object.recipe_name }} Photo" style="max-width: 300px; max-height: 200px;">
+{% endif %}
+
+
+
 <a href="{% url 'antoquinoapp:recipe_delete' pk=object.pk %}">削除する</a>
 
 <a href="{% url 'antoquinoapp:recipe_update' pk=object.pk %}" >編集ページへ</a>

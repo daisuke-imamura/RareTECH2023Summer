@@ -9,6 +9,12 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
+
+        {% comment %} <div class="form-group">
+            <label for="{{ form.photo.id_for_label }}">Upload Photo:</label>
+            {{ form.photo }}
+        </div> {% endcomment %}
+
         <button type="submit">Create</button>
     </form>
 

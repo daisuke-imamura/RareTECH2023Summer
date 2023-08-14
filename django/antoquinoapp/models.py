@@ -28,6 +28,8 @@ class Recipe(models.Model):
     )
     
     recipe_name = models.CharField(max_length=255, verbose_name="料理名")
+    photo = models.ImageField(upload_to='recipe_photos/', null=True, blank=True)  # ImageField を使用
+
     # photo_url = models.TextField(verbose_name="画像アップロード",unique=False, null=True)
     category = models.CharField(max_length=10, choices=CATEGORY_CHOICES,unique=False, null=True)
     ingredients = models.TextField(verbose_name="材料",unique=False, null=True)

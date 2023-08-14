@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 from .forms import Loginform  
 from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 
@@ -18,6 +20,8 @@ urlpatterns = [
     path('recipe_detail/<int:pk>', views.RecipeDetailView.as_view(), name='recipe_detail'),
     path('recipe_update/<int:pk>', views.RecipeUpdateView.as_view(), name='recipe_update'),
     path('recipe_delete/<int:pk>', views.RecipeDeleteView.as_view(), name='recipe_delete'),
+
 ]
+
     # path("recipe_list/", views.regist, name="recipe_list"),
     

@@ -14,10 +14,18 @@
 {% endif %}
 
 <ul>
-    {% for oj in object_list %}
+    {% for object in object_list %}
     <li>
-        {{ oj.recipe_name}} 
-        <a href="{% url 'antoquinoapp:recipe_detail' pk=oj.pk %}">詳細へ</a>
+        {{ object.recipe_name}} 
+        {% if object.photo %}
+                <!-- 画像を表示 -->
+            {% if object.photo %}
+                <img src="{{ object.photo.url }}" alt="{{ object.recipe_name }} Photo" style="max-width: 300px; max-height: 200px;">
+            {% endif %}
+
+        {% endif %} 
+
+        <a href="{% url 'antoquinoapp:recipe_detail' pk=object.pk %}">詳細へ</a>
     </li>
     {% endfor %}
 

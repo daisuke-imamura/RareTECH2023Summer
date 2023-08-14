@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
-from . import forms
 from django.core.exceptions import ValidationError
-from django.contrib.auth.views import LoginView, LogoutView
+# from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView
 from .models import Recipe
-from .forms import RecipeCreateForm
+from .forms import RecipeCreateForm, RegistForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -19,7 +18,7 @@ def hello(request):
 
 
 def regist(request):
-    regist_form = forms.RegistForm(request.POST or None)
+    regist_form = RegistForm(request.POST or None)
     if regist_form.is_valid():
         try:
             regist_form.save()
@@ -32,10 +31,13 @@ def regist(request):
             "regist_form":regist_form,
         }
     )
-    
+#djangoにある、デフォルトのlogin,logoutoを使用する場合、クラスは不要。
+# ただし、login.htmlはregistrationフォルダの中に作る必要あり。
+# urlもauth_viewsをインポートして、forms.pyは必要。
 # class LoginView(LoginView):
 #     template_name = "login.html"
 #     form_class = forms.Loginform
+
 
 
 class RecipeCreateView(LoginRequiredMixin, CreateView):

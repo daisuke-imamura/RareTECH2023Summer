@@ -127,11 +127,22 @@ LOGOUT_REDIRECT_URL = "antoquinoapp:login"
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 #静的ファイルを収集する場所。Djangoのcollectstaticコマンドを実行すると、プロジェクト内の全てのアプリケーションから静的ファイルがSTATIC_ROOTで指定したディレクトリに収集（コピー）される。
-STATIC_ROOT = os.path.join(BASE_DIR / "static")
+# STATIC_ROOT = os.path.join(BASE_DIR / "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
 #静的ファイルへのURLが/static/で始まるように設定
 STATIC_URL = "/static/"
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR / "antoquinoapp/static")]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR / "antoquinoapp/static")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "antoquinoapp/static")]
+
+
+
+# MEDIA_URL = '/media/'  # メディアファイルのURLパス
+MEDIA_URL = '/media/recipe_photos/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # メディアファイルの保存先ディレクトリ
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
